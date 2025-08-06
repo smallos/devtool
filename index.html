@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON 工具箱 - 专业的JSON处理工具</title>
+    <meta name="description" content="专业的JSON格式化、对比和管理工具，支持语法高亮、错误检测、历史记录等功能" />
+    <meta name="keywords" content="JSON格式化,JSON对比,JSON工具,JSON验证,JSON压缩,JSON转义,在线JSON工具" />
+    <meta name="author" content="JSON工具箱" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="JSON 工具箱 - 专业的JSON处理工具" />
+    <meta property="og:description" content="专业的JSON格式化、对比和管理工具，支持语法高亮、错误检测、历史记录等功能" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="JSON 工具箱 - 专业的JSON处理工具" />
+    <meta name="twitter:description" content="专业的JSON格式化、对比和管理工具，支持语法高亮、错误检测、历史记录等功能" />
+    <script>
+      // 初始化主题，避免闪烁
+      (function() {
+        const stored = localStorage.getItem('json-tool-storage');
+        if (stored) {
+          try {
+            const data = JSON.parse(stored);
+            if (data.state && data.state.theme === 'dark') {
+              document.documentElement.classList.add('dark');
+            }
+          } catch (e) {
+            // 忽略解析错误
+          }
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <script type="module">
+      if (import.meta.hot?.on) {
+        import.meta.hot.on('vite:error', (error) => {
+          if (error.err) {
+            console.error([error.err.message, error.err.frame].filter(Boolean).join('\n'));
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

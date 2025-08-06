@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BeJSON-inspired white theme styles */
+:root {
+  /* White theme (default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f4;
+  --bg-card: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --text-subtle: #cccccc;
+  --border: #e0e0e0;
+  --border-light: #f0f0f0;
+  --accent-blue: #007bff;
+  --accent-blue-hover: #0056b3;
+  --accent-green: #28a745;
+  --accent-orange: #fd7e14;
+  --error: #dc3545;
+  --success: #28a745;
+  --warning: #ffc107;
+  --info: #17a2b8;
+
+  font-family: "Helvetica Neue", "思源黑体", "Noto Sans SC", "Segoe UI", "Roboto", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* Base styles */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Button styles */
+button {
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 0.6em 1.2em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+button:hover {
+  border-color: var(--accent-blue);
+  background-color: var(--bg-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* Primary button styles */
+button.primary {
+  background-color: var(--accent-blue);
+  color: white;
+  border-color: var(--accent-blue);
+}
+
+button.primary:hover {
+  background-color: var(--accent-blue-hover);
+  border-color: var(--accent-blue-hover);
+}
+
+/* Link styles */
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+a:hover {
+  color: var(--accent-blue-hover);
+}
+
+/* Input styles */
+input, textarea {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 4px;
+  padding: 0.5em 0.75em;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 200ms ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
