@@ -1,7 +1,8 @@
 # TODO:
 
-- [x] nav_seo_1: 在顶部添加功能导航栏，包含格式化工具和diff工具的切换链接 (priority: High)
-- [x] nav_seo_2: 为每个页面添加独特的SEO meta标签，包括title、description、keywords (priority: High)
-- [x] nav_seo_3: 优化HTML结构，添加语义化标签和结构化数据 (priority: Medium)
-- [x] nav_seo_4: 确保导航栏在移动端的响应式适配 (priority: Medium)
-- [x] nav_seo_5: 测试导航功能和SEO效果 (priority: Low)
+- [x] diff-1: 分析当前JSON diff实现的问题 - 查看compareJsons函数的逻辑 (priority: High)
+- [x] diff-2: 实现真正的JSON差异对比算法 - 递归比较对象和数组 (priority: High)
+- [x] diff-3: 添加差异高亮显示 - 新增(绿色)、删除(红色)、修改(黄色)的视觉标识 (priority: High)
+- [x] diff-4: 实现"仅显示差异"功能 - 过滤并只显示有差异的部分 (priority: Medium)
+- [x] diff-5: 优化差异显示格式 - 支持嵌套对象和数组的清晰展示 (priority: Medium)
+- [x] diff-6: 测试JSON diff功能 - 验证各种JSON结构的对比效果 (priority: Medium)
