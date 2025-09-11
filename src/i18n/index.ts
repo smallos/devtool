@@ -3,6 +3,8 @@ export interface Translations {
   nav: {
     formatter: string;
     diff: string;
+    excel: string;
+    stateDiagram: string;
     language: string;
   };
   formatter: {
@@ -44,6 +46,51 @@ export interface Translations {
     noDifference: string;
     differencesFound: string;
   };
+  excel: {
+    title: string;
+    description: string;
+    excelToJsonMode: string;
+    jsonToExcelMode: string;
+    csvToJsonMode: string;
+    jsonToCsvMode: string;
+    formatSelector: string;
+    excelFormat: string;
+    csvFormat: string;
+    uploadLabel: string;
+    uploadDescription: string;
+    uploadHint: string;
+    csvOptions: string;
+    delimiter: string;
+    encoding: string;
+    hasHeader: string;
+    delimiterComma: string;
+    delimiterSemicolon: string;
+    delimiterTab: string;
+    delimiterPipe: string;
+    csvExportOptions: string;
+    selectFileButton: string;
+    jsonInputLabel: string;
+    jsonInputPlaceholder: string;
+    convertButton: string;
+    convertingText: string;
+    downloadButton: string;
+    resultLabel: string;
+    clearButton: string;
+    copyButton: string;
+    historyTitle: string;
+    noHistory: string;
+    clearHistory: string;
+    excelParseError: string;
+    jsonInputRequired: string;
+    jsonArrayRequired: string;
+    jsonFormatError: string;
+    copySuccess: string;
+    copyError: string;
+    excelToJsonHistory: string;
+    jsonToExcelHistory: string;
+    csvToJsonHistory: string;
+    jsonToCsvHistory: string;
+  };
   seo: {
     formatter: {
       title: string;
@@ -54,6 +101,90 @@ export interface Translations {
       title: string;
       description: string;
       keywords: string;
+    };
+    excel: {
+      title: string;
+      description: string;
+      keywords: string;
+    };
+    stateDiagram: {
+      title: string;
+      description: string;
+      keywords: string;
+    };
+  };
+  stateDiagram: {
+    title: string;
+    description: string;
+    editor: {
+      title: string;
+      placeholder: string;
+    };
+    preview: {
+      title: string;
+      loading: string;
+    };
+    templates: {
+      title: string;
+      basic: string;
+      userLogin: string;
+      orderProcess: string;
+      gameState: string;
+    };
+    history: {
+      title: string;
+      empty: string;
+    };
+    buttons: {
+      copy: string;
+      save: string;
+      clear: string;
+      reset: string;
+      upload: string;
+      showPreview: string;
+      hidePreview: string;
+      exportSvg: string;
+      exportPng: string;
+      exportHighResPng: string;
+      codeEditor: string;
+      templateLibrary: string;
+      historyRecords: string;
+      showEditor: string;
+      hideEditor: string;
+      zoomIn: string;
+      zoomOut: string;
+      resetView: string;
+    };
+    messages: {
+      copied: string;
+      saved: string;
+      loaded: string;
+      exported: string;
+      fileLoaded: string;
+      reset: string;
+      templateApplied: string;
+      historyCleared: string;
+      noHistory: string;
+    };
+    errors: {
+      renderFailed: string;
+      exportFailed: string;
+      noContent: string;
+      emptyCode: string;
+    };
+    prompts: {
+      saveName: string;
+      resetCode: string;
+      clearHistory: string;
+    };
+    tooltips: {
+      saveToHistory: string;
+      exportSvgFormat: string;
+      exportPngFormat: string;
+      exportHighResPngFormat: string;
+      resetCode: string;
+      showHideEditor: string;
+      dragToResize: string;
     };
   };
 }

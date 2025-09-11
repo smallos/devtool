@@ -69,7 +69,8 @@ export const useI18n = () => {
     };
   }, []);
 
-  const t = translations[language];
+  // 确保t函数始终有效，如果language无效则使用默认语言
+  const t = translations[language] || translations['zh'];
 
   return {
     language,

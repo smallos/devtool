@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
-import { FileText, GitCompare, Globe, ChevronDown } from "lucide-react";
+import { FileText, GitCompare, Globe, ChevronDown, Workflow } from "lucide-react";
 import { useI18n } from "../hooks/useI18n";
 import { Language, LANGUAGE_NAMES } from "../i18n";
 
@@ -24,6 +24,8 @@ const Navigation: React.FC = () => {
   const navigationItems = [
     { key: 'formatter', label: t.nav.formatter, path: getLocalizedPath('/formatter', language) },
     { key: 'diff', label: t.nav.diff, path: getLocalizedPath('/diff', language) },
+    { key: 'excel', label: t.nav.excel, path: getLocalizedPath('/excel', language) },
+    { key: 'stateDiagram', label: t.nav.stateDiagram, path: getLocalizedPath('/statediagram', language) },
   ];
 
   const handleLanguageChange = (newLanguage: 'zh' | 'en') => {
@@ -56,7 +58,8 @@ const Navigation: React.FC = () => {
             {navigationItems.map((item) => {
               const isActive = location.pathname === item.path || 
                              (item.key === 'formatter' && (location.pathname === '/' || location.pathname.endsWith('/formatter'))) ||
-                             (item.key === 'diff' && location.pathname.endsWith('/diff'));
+                             (item.key === 'diff' && location.pathname.endsWith('/diff')) ||
+                             (item.key === 'stateDiagram' && location.pathname.endsWith('/statediagram'));
               
               return (
                 <Link

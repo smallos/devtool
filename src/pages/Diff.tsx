@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Editor } from '@monaco-editor/react';
-import { Copy, Upload, Download, RotateCcw, Eye, EyeOff, ChevronUp, ChevronDown, Filter } from 'lucide-react';
+import { Copy, Upload, Download, RotateCcw, Eye, EyeOff, ChevronUp, ChevronDown, Filter, GitCompare } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import SEO from '../components/SEO';
 import { useI18n } from '../hooks/useI18n';
@@ -446,80 +446,89 @@ const Diff: React.FC = () => {
       <Navigation />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
-        {/* 工具栏 */}
-        <header className="bg-white rounded-lg shadow-sm border border-bj-border px-4 sm:px-6 py-4 mb-6">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6">
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:space-x-3 sm:gap-0">
-              <button
-                onClick={formatAndCompare}
-                className="px-3 py-1.5 bg-bj-accent-blue hover:bg-bj-accent-blue-hover text-white rounded text-xs flex items-center justify-center space-x-1.5 transition-all duration-200 shadow-sm hover:shadow"
-              >
-                <span>{t.diff.compareButton}</span>
-              </button>
-              
-              <button
-                onClick={clearAll}
-                className="px-3 py-1.5 bg-bj-text-muted hover:bg-bj-text-secondary text-white rounded text-xs flex items-center justify-center space-x-1.5 transition-all duration-200"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-                <span>{t.formatter.clearButton}</span>
-              </button>
-            </div>
+        {/* Header with title and controls */}
+        <header className="bg-white rounded-lg shadow-sm border border-bj-border p-4 mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+               <GitCompare className="w-5 h-5 text-bj-accent-blue" />
+               <h1 className="text-lg font-semibold text-bj-text-primary">JSON 对比工具</h1>
+             </div>
             
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:space-x-6 sm:gap-0">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:space-x-3 sm:gap-0">
-                <label className="text-xs text-bj-text-secondary font-medium">视图模式:</label>
+            <div className="flex items-center space-x-2">
+              <button
+                 onClick={formatAndCompare}
+                 disabled={!leftJson.trim() || !rightJson.trim()}
+                 className="px-3 py-1.5 bg-bj-accent-blue hover:bg-bj-accent-blue-hover disabled:bg-bj-text-muted/30 disabled:cursor-not-allowed text-white text-xs rounded transition-all duration-200 flex items-center space-x-1.5"
+               >
+                 <GitCompare className="w-3.5 h-3.5" />
+                 <span>{t.diff.compareButton}</span>
+               </button>
+              
+              <div className="flex items-center space-x-1">
+                 <label className="text-bj-text-secondary text-xs">
+                   视图模式:
+                 </label>
                 <select
                   value={viewMode}
                   onChange={(e) => setViewMode(e.target.value as ViewMode)}
-                  className="px-2 py-1 border border-bj-border rounded text-xs bg-white focus:outline-none focus:ring-1 focus:ring-bj-accent-blue"
+                  className="px-2 py-1 bg-white border border-bj-border text-bj-text-primary text-xs rounded focus:outline-none focus:ring-1 focus:ring-bj-accent-blue/20 focus:border-bj-accent-blue transition-all duration-200"
                 >
-                  <option value="split">分屏</option>
-                  <option value="unified">统一</option>
+                  <option value="split">分屏视图</option>
+                   <option value="unified">统一视图</option>
                 </select>
               </div>
               
               <button
                 onClick={() => setShowDiffOnly(!showDiffOnly)}
-                className={`px-3 py-1.5 rounded text-xs transition-all duration-200 flex items-center justify-center space-x-1.5 ${
-                  showDiffOnly
-                    ? 'bg-bj-accent-blue/10 text-bj-accent-blue border border-bj-accent-blue/30'
-                    : 'bg-bj-bg-secondary hover:bg-bj-bg-tertiary text-bj-text-primary border border-bj-border'
+                disabled={!hasDifferences}
+                className={`px-3 py-1.5 text-xs rounded transition-all duration-200 flex items-center space-x-1.5 disabled:opacity-50 disabled:cursor-not-allowed ${
+                  showDiffOnly 
+                    ? 'bg-bj-accent-orange hover:bg-bj-accent-orange-hover text-white' 
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                 }`}
               >
-                {showDiffOnly ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                <Filter className="w-3.5 h-3.5" />
                 <span>{showDiffOnly ? '显示全部' : '仅差异'}</span>
               </button>
               
               <button
                 onClick={() => setShowInputs(!showInputs)}
-                className="px-3 py-1.5 bg-bj-bg-secondary hover:bg-bj-bg-tertiary text-bj-text-primary border border-bj-border rounded text-xs transition-all duration-200 flex items-center justify-center space-x-1.5"
-                title={showInputs ? '隐藏输入框' : '显示输入框'}
+                className={`px-3 py-1.5 text-xs rounded transition-all duration-200 flex items-center space-x-1.5 ${
+                   showInputs 
+                     ? 'bg-bj-accent-green hover:bg-bj-accent-green-hover text-white' 
+                     : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                 }`}
+               >
+                 <Eye className="w-3.5 h-3.5" />
+                 <span>{showInputs ? '隐藏输入' : '显示输入'}</span>
+               </button>
+              
+              <button
+                onClick={() => exportDiff('json')}
+                disabled={!leftFormatted && !rightFormatted}
+                className="px-3 py-1.5 bg-bj-accent-blue hover:bg-bj-accent-blue-hover disabled:bg-bj-text-muted/30 disabled:cursor-not-allowed text-white text-xs rounded transition-all duration-200 flex items-center space-x-1.5"
               >
-                {showInputs ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                <span>{showInputs ? '隐藏输入' : '显示输入'}</span>
+                <Download className="w-3.5 h-3.5" />
+                <span>导出JSON</span>
+              </button>
+              
+              <button
+                onClick={() => exportDiff('html')}
+                disabled={!leftFormatted && !rightFormatted}
+                className="px-3 py-1.5 bg-bj-accent-blue hover:bg-bj-accent-blue-hover disabled:bg-bj-text-muted/30 disabled:cursor-not-allowed text-white text-xs rounded transition-all duration-200 flex items-center space-x-1.5"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>导出HTML</span>
+              </button>
+              
+              <button
+                onClick={clearAll}
+                className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded transition-all duration-200 flex items-center space-x-1.5"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                 <span>清空</span>
               </button>
             </div>
-            
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:space-x-3 sm:gap-0">
-                <button
-                  onClick={() => exportDiff('json')}
-                  disabled={!leftFormatted && !rightFormatted}
-                  className="px-3 py-1.5 bg-bj-accent-blue hover:bg-bj-accent-blue-hover disabled:bg-bj-text-muted/30 disabled:cursor-not-allowed text-white text-xs rounded transition-all duration-200 flex items-center justify-center space-x-1.5 disabled:hover:scale-100"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>导出JSON</span>
-                </button>
-                
-                <button
-                  onClick={() => exportDiff('html')}
-                  disabled={!leftFormatted && !rightFormatted}
-                  className="px-3 py-1.5 bg-bj-accent-blue hover:bg-bj-accent-blue-hover disabled:bg-bj-text-muted/30 disabled:cursor-not-allowed text-white text-xs rounded transition-all duration-200 flex items-center justify-center space-x-1.5 disabled:hover:scale-100"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>导出HTML</span>
-                </button>
-              </div>
           </div>
         </header>
 

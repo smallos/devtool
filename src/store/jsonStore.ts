@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 
 export interface HistoryRecord {
   id: string;
-  type: 'format' | 'minify' | 'diff';
+  type: 'format' | 'minify' | 'diff' | 'excel-to-json' | 'json-to-excel' | 'csv-to-json' | 'json-to-csv' | 'conversion';
   input: string;
   output: string;
   timestamp: Date;

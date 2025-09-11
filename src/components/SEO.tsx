@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useI18n } from '../hooks/useI18n';
 
 interface SEOProps {
-  page: 'formatter' | 'diff';
+  page: 'formatter' | 'diff' | 'excel';
   title?: string;
   description?: string;
   keywords?: string;

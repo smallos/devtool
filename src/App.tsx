@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Formatter from "@/pages/Formatter";
 import Diff from "@/pages/Diff";
+import ExcelConverter from "@/pages/ExcelConverter";
+import StateDiagram from "@/pages/StateDiagram";
 import { useI18n } from "@/hooks/useI18n";
 import { useEffect } from "react";
 
@@ -36,17 +38,23 @@ export default function App() {
         <Route path="/zh/formatter" element={<Formatter />} />
         <Route path="/zh/diff" element={<Diff />} />
         <Route path="/zh/jsondiff" element={<Diff />} />
+        <Route path="/zh/excel" element={<ExcelConverter />} />
+        <Route path="/zh/statediagram" element={<StateDiagram />} />
         
         {/* 英文路由 */}
         <Route path="/en" element={<Navigate to="/en/formatter" replace />} />
         <Route path="/en/formatter" element={<Formatter />} />
         <Route path="/en/diff" element={<Diff />} />
         <Route path="/en/jsondiff" element={<Diff />} />
+        <Route path="/en/excel" element={<ExcelConverter />} />
+        <Route path="/en/statediagram" element={<StateDiagram />} />
         
         {/* 无语言前缀的路由（向后兼容） */}
         <Route path="/formatter" element={<Formatter />} />
         <Route path="/diff" element={<Diff />} />
         <Route path="/jsondiff" element={<Diff />} />
+        <Route path="/excel" element={<ExcelConverter />} />
+        <Route path="/statediagram" element={<StateDiagram />} />
         
         {/* 404重定向 */}
         <Route path="*" element={<Navigate to="/formatter" replace />} />
