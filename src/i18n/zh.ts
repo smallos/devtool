@@ -7,6 +7,7 @@ export const zh: Translations = {
     excel: '数据转换',
     docToMarkdown: '文档转Markdown',
     stateDiagram: '状态图绘制',
+    markdownEditor: 'Markdown编辑器',
     language: '语言'
   },
   formatter: {

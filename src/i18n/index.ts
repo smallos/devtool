@@ -6,6 +6,7 @@ export interface Translations {
     excel: string;
     docToMarkdown: string;
     stateDiagram: string;
+    markdownEditor: string;
     language: string;
   };
   formatter: {

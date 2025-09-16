@@ -4,6 +4,7 @@ import Diff from "@/pages/Diff";
 import ExcelConverter from "@/pages/ExcelConverter";
 import DocToMarkdown from "@/pages/DocToMarkdown";
 import StateDiagram from "@/pages/StateDiagram";
+import MarkdownEditor from "@/pages/MarkdownEditor";
 import { useI18n } from "@/hooks/useI18n";
 import { useEffect } from "react";
 
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/zh/excel" element={<ExcelConverter />} />
         <Route path="/zh/doc-to-markdown" element={<DocToMarkdown />} />
         <Route path="/zh/statediagram" element={<StateDiagram />} />
+        <Route path="/zh/markdown-editor" element={<MarkdownEditor />} />
         
         {/* 英文路由 */}
         <Route path="/en" element={<Navigate to="/en/formatter" replace />} />
@@ -51,6 +53,7 @@ export default function App() {
         <Route path="/en/excel" element={<ExcelConverter />} />
         <Route path="/en/doc-to-markdown" element={<DocToMarkdown />} />
         <Route path="/en/statediagram" element={<StateDiagram />} />
+        <Route path="/en/markdown-editor" element={<MarkdownEditor />} />
         
         {/* 无语言前缀的路由（向后兼容） */}
         <Route path="/formatter" element={<Formatter />} />
@@ -58,6 +61,7 @@ export default function App() {
         <Route path="/jsondiff" element={<Diff />} />
         <Route path="/excel" element={<ExcelConverter />} />
         <Route path="/statediagram" element={<StateDiagram />} />
+        <Route path="/markdown-editor" element={<MarkdownEditor />} />
         
         {/* 404重定向 */}
         <Route path="*" element={<Navigate to="/formatter" replace />} />

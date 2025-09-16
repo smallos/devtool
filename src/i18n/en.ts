@@ -7,6 +7,7 @@ export const en: Translations = {
     excel: 'Data Converter',
     docToMarkdown: 'Doc to Markdown',
     stateDiagram: 'State Diagram',
+    markdownEditor: 'Markdown Editor',
     language: 'Language'
   },
   formatter: {
