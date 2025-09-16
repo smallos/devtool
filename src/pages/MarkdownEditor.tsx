@@ -397,7 +397,7 @@ $$E = mc^2$$
       </div>
 
       {/* 自定义样式 */}
-      <style jsx="true">{`
+      <style>{`
         .markdown-content h1 {
           font-size: 2rem;
           font-weight: bold;

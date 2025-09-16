@@ -13,7 +13,7 @@ import {
   X,
   Database
 } from 'lucide-react';
-import Navigation from '../components/Navigation';
+
 import SEO from '../components/SEO';
 import { useI18n } from '../hooks/useI18n';
 import { useJsonStore } from '../store/jsonStore';
@@ -255,7 +255,6 @@ const ExcelConverter: React.FC = () => {
         description={t.seo.excel.description}
         keywords={t.seo.excel.keywords}
       />
-      <Navigation />
       
       <main className="min-h-screen bg-bj-bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

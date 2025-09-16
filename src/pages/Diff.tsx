@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Editor } from '@monaco-editor/react';
 import { Copy, Upload, Download, RotateCcw, Eye, EyeOff, ChevronUp, ChevronDown, Filter, GitCompare } from 'lucide-react';
-import Navigation from '../components/Navigation';
 import SEO from '../components/SEO';
 import { useI18n } from '../hooks/useI18n';
 
@@ -443,7 +442,6 @@ const Diff: React.FC = () => {
         description={t.seo.diff.description}
         keywords={t.seo.diff.keywords}
       />
-      <Navigation />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {/* Header with title and controls */}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useI18n } from '../hooks/useI18n';
-import Navigation from '../components/Navigation';
 import mermaid from 'mermaid';
 import html2canvas from 'html2canvas';
 import { toast } from 'sonner';
@@ -676,8 +675,6 @@ const StateDiagram: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden">
-      {/* 顶部导航栏 */}
-      <Navigation />
       
       {/* 头部导航 - Google风格简洁设计 */}
       <div className="bg-white border-b border-gray-200 px-6 py-4 relative z-10">

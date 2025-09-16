@@ -102,9 +102,7 @@ router.post('/convert-doc', upload.single('file'), async (req: Request, res: Res
       
       try {
         const extractedText = await parseOfficeAsync(buffer, {
-          outputErrorToConsole: true,
-          tempFilesLocation: '/tmp/',
-          preserveLineBreaks: true
+          outputErrorToConsole: true
         });
         
         console.log('Officeparser原始输出长度:', extractedText?.length || 0);

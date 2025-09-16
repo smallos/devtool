@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Editor } from '@monaco-editor/react';
 import { Settings, Copy, Upload, Download, RotateCcw, Maximize, Minimize, History, Code, GripHorizontal } from 'lucide-react';
-import Navigation from '../components/Navigation';
 import SEO from '../components/SEO';
 import { useJsonStore } from '@/store/jsonStore';
 import type { HistoryRecord } from '@/store/jsonStore';
@@ -217,7 +216,6 @@ const Formatter: React.FC = () => {
         description={t.seo.formatter.description}
         keywords={t.seo.formatter.keywords}
       />
-      {!isFullscreen && <Navigation />}
       
       {/* Header with function buttons */}
       {!isFullscreen && (
