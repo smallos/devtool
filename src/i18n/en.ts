@@ -5,6 +5,7 @@ export const en: Translations = {
     formatter: 'JSON Formatter',
     diff: 'JSON Diff',
     excel: 'Data Converter',
+    docToMarkdown: 'Doc to Markdown',
     stateDiagram: 'State Diagram',
     language: 'Language'
   },
@@ -112,6 +113,11 @@ export const en: Translations = {
       title: 'State Diagram Tool - Online Mermaid State Diagram Editor',
       description: 'Professional online state diagram drawing tool based on Mermaid syntax. Features real-time preview, PNG/SVG export, template library, and history records. Easily create flowcharts and state transition diagrams.',
       keywords: 'state diagram,Mermaid,flowchart,state transition,online drawing,chart tool,PNG export,SVG export,state machine'
+    },
+    docToMarkdown: {
+      title: 'Doc to Markdown Tool - Online DOC/PDF to Markdown Converter',
+      description: 'Professional online document conversion tool supporting DOCX, PDF formats to Markdown. Preserves original document formatting including headings, paragraphs, lists, and tables.',
+      keywords: 'DOC to Markdown,PDF to Markdown,DOCX converter,document conversion,Markdown converter,online conversion tool'
     }
   },
   stateDiagram: {
@@ -187,5 +193,45 @@ export const en: Translations = {
        showHideEditor: 'Show/Hide editor',
        dragToResize: 'Drag to resize'
      }
-  }
+   },
+   docToMarkdown: {
+     title: 'Doc to Markdown Tool',
+     description: 'Convert DOCX, PDF and other document formats to Markdown while preserving original formatting and structure',
+     upload: {
+       title: 'Upload Document',
+       dragText: 'Drag files here or click to select files',
+       selectFile: 'Select File',
+       supportedFormats: 'Supported formats: DOCX, PDF, DOC (Max 10MB)'
+     },
+     result: {
+       title: 'Markdown Result',
+       copy: 'Copy',
+       download: 'Download',
+       placeholder: 'Converted Markdown content will be displayed here...',
+       empty: 'Please upload a document file first'
+     },
+     converting: 'Converting document...',
+     success: 'Document {{fileName}} converted successfully!',
+     errors: {
+       fileTooLarge: 'File size exceeds 10MB limit',
+       unsupportedFormat: 'Unsupported file format, please upload DOCX, PDF or DOC files',
+       docxConversion: 'DOCX file conversion failed, please check if the file is corrupted',
+       pdfConversion: 'PDF file conversion failed, please check if the file is corrupted',
+       noTextFound: 'No extractable text content found in PDF file',
+       unknown: 'Unknown error occurred during conversion, please try again'
+     },
+     instructions: {
+       title: 'Instructions',
+       supported: {
+         title: 'Supported File Formats'
+       },
+       features: {
+         title: 'Conversion Features',
+         headings: 'Heading level conversion',
+         paragraphs: 'Paragraph formatting preservation',
+         lists: 'List structure conversion',
+         tables: 'Table format conversion'
+       }
+     }
+   }
 };

@@ -25,6 +25,7 @@ const Navigation: React.FC = () => {
     { key: 'formatter', label: t.nav.formatter, path: getLocalizedPath('/formatter', language) },
     { key: 'diff', label: t.nav.diff, path: getLocalizedPath('/diff', language) },
     { key: 'excel', label: t.nav.excel, path: getLocalizedPath('/excel', language) },
+    { key: 'docToMarkdown', label: t.nav.docToMarkdown, path: getLocalizedPath('/doc-to-markdown', language) },
     { key: 'stateDiagram', label: t.nav.stateDiagram, path: getLocalizedPath('/statediagram', language) },
   ];
 

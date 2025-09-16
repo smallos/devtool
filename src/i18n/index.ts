@@ -4,6 +4,7 @@ export interface Translations {
     formatter: string;
     diff: string;
     excel: string;
+    docToMarkdown: string;
     stateDiagram: string;
     language: string;
   };
@@ -112,6 +113,11 @@ export interface Translations {
       description: string;
       keywords: string;
     };
+    docToMarkdown: {
+      title: string;
+      description: string;
+      keywords: string;
+    };
   };
   stateDiagram: {
     title: string;
@@ -185,6 +191,46 @@ export interface Translations {
       resetCode: string;
       showHideEditor: string;
       dragToResize: string;
+    };
+  };
+  docToMarkdown: {
+    title: string;
+    description: string;
+    upload: {
+      title: string;
+      dragText: string;
+      selectFile: string;
+      supportedFormats: string;
+    };
+    result: {
+      title: string;
+      copy: string;
+      download: string;
+      placeholder: string;
+      empty: string;
+    };
+    converting: string;
+    success: string;
+    errors: {
+      fileTooLarge: string;
+      unsupportedFormat: string;
+      docxConversion: string;
+      pdfConversion: string;
+      noTextFound: string;
+      unknown: string;
+    };
+    instructions: {
+      title: string;
+      supported: {
+        title: string;
+      };
+      features: {
+        title: string;
+        headings: string;
+        paragraphs: string;
+        lists: string;
+        tables: string;
+      };
     };
   };
 }

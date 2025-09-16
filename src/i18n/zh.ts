@@ -5,6 +5,7 @@ export const zh: Translations = {
     formatter: 'JSON格式化',
     diff: 'JSON对比',
     excel: '数据转换',
+    docToMarkdown: '文档转Markdown',
     stateDiagram: '状态图绘制',
     language: '语言'
   },
@@ -112,6 +113,11 @@ export const zh: Translations = {
       title: '状态图绘制工具 - 在线Mermaid状态图编辑器',
       description: '专业的在线状态图绘制工具，基于Mermaid语法，支持实时预览、PNG/SVG导出、模板库、历史记录等功能。轻松创建流程图、状态转换图。',
       keywords: '状态图,Mermaid,流程图,状态转换图,在线绘图,图表工具,PNG导出,SVG导出,状态机'
+    },
+    docToMarkdown: {
+      title: '文档转Markdown工具 - 在线DOC/PDF转Markdown转换器',
+      description: '专业的在线文档转换工具，支持DOCX、PDF等格式转换为Markdown。保持原文档格式，支持标题、段落、列表、表格等元素转换。',
+      keywords: 'DOC转Markdown,PDF转Markdown,DOCX转换,文档转换,Markdown转换器,在线转换工具'
     }
   },
   stateDiagram: {
@@ -186,6 +192,46 @@ export const zh: Translations = {
        resetCode: '重置代码',
        showHideEditor: '显示/隐藏编辑器',
        dragToResize: '拖拽调整大小'
-     }
   }
+   },
+   docToMarkdown: {
+     title: '文档转Markdown工具',
+     description: '支持DOCX、PDF等文档格式转换为Markdown，保持原文档格式和结构',
+     upload: {
+       title: '上传文档',
+       dragText: '拖拽文件到此处或点击选择文件',
+       selectFile: '选择文件',
+       supportedFormats: '支持格式：DOCX、PDF、DOC（最大10MB）'
+     },
+     result: {
+       title: 'Markdown结果',
+       copy: '复制',
+       download: '下载',
+       placeholder: '转换后的Markdown内容将在这里显示...',
+       empty: '请先上传文档文件'
+     },
+     converting: '正在转换文档...',
+     success: '文档 {{fileName}} 转换成功！',
+     errors: {
+       fileTooLarge: '文件大小超过10MB限制',
+       unsupportedFormat: '不支持的文件格式，请上传DOCX、PDF或DOC文件',
+       docxConversion: 'DOCX文件转换失败，请检查文件是否损坏',
+       pdfConversion: 'PDF文件转换失败，请检查文件是否损坏',
+       noTextFound: 'PDF文件中未找到可提取的文本内容',
+       unknown: '转换过程中发生未知错误，请重试'
+     },
+     instructions: {
+       title: '使用说明',
+       supported: {
+         title: '支持的文件格式'
+       },
+       features: {
+         title: '转换功能',
+         headings: '标题层级转换',
+         paragraphs: '段落格式保持',
+         lists: '列表结构转换',
+         tables: '表格格式转换'
+       }
+     }
+   }
 };
